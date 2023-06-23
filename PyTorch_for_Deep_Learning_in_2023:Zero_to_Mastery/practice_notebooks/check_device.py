@@ -30,5 +30,6 @@ def CPU_vs_GPU():
     toc = time.time()
     print(f"{u.device} -> {toc - tic}")
 
+
 if __name__ == "__main__":
     CPU_vs_GPU()
