@@ -1,9 +1,11 @@
+matplotlib
+scikit-learn
+scipy
+ipywidgets
+transformers
 fastai>=2.0.0
 graphviz
-ipywidgets
-matplotlib
 nbdev>=0.2.12
 pandas
-scikit_learn
 azure-cognitiveservices-search-imagesearch
 sentencepiece
