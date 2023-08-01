@@ -73,12 +73,16 @@ def plot_decision_boundary(model: torch.nn.Module, X: torch.Tensor, y: torch.Ten
 
 # Plot linear data or training and test and predictions (optional)
 def plot_predictions(
-    train_data, train_labels, test_data, test_labels, predictions=None
+    train_data, train_labels, test_data, test_labels, predictions=None, fig_size=(10, 7), title=None
 ):
     """
     Plots linear training data and test data and compares predictions.
     """
-    plt.figure(figsize=(10, 7))
+    
+    plt.figure(figsize=fig_size)
+    
+    if title is not None:
+        plt.suptitle(title)
 
     # Plot training data in blue
     plt.scatter(train_data, train_labels, c="b", s=4, label="Training data")
@@ -91,7 +95,7 @@ def plot_predictions(
         plt.scatter(test_data, predictions, c="r", s=4, label="Predictions")
 
     # Show the legend
-    plt.legend(prop={"size": 14})
+    plt.legend(prop={"size": fig_size[1]*2})
 
 
 # Calculate accuracy (a classification metric)
