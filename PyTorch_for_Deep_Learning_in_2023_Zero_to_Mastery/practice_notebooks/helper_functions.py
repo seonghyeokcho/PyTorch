@@ -20,6 +20,7 @@ import requests
 # are in each subdirectory.
 import os
 
+
 def walk_through_dir(dir_path):
     """
     Walks through dir_path returning its contents.
@@ -34,6 +35,7 @@ def walk_through_dir(dir_path):
     """
     for dirpath, dirnames, filenames in os.walk(dir_path):
         print(f"There are {len(dirnames)} directories and {len(filenames)} images in '{dirpath}'.")
+
 
 def plot_decision_boundary(model: torch.nn.Module, X: torch.Tensor, y: torch.Tensor):
     """Plots decision boundaries of model predicting on X in comparison to y.
@@ -240,6 +242,7 @@ def pred_and_plot_image(
     plt.title(title)
     plt.axis(False)
 
+
 def set_seeds(seed: int=42):
     """Sets random sets for torch operations.
 
@@ -250,6 +253,7 @@ def set_seeds(seed: int=42):
     torch.manual_seed(seed)
     # Set the seed for CUDA torch operations (ones that happen on the GPU)
     torch.cuda.manual_seed(seed)
+
 
 def download_data(source: str, 
                   destination: str,
