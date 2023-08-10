@@ -13,10 +13,16 @@ def SSE(y, y_hat):
 # MSE(Mean Squared Error) - L2 Loss
 def MSE(y, y_hat):
     N = len(y)
-    return (1/N)*np.sum((y - y_hat)**2)
+    return (1/N) * np.sum((y - y_hat)**2)
 
 
 # MAE(Mean Absolute Error) - L1 Loss
 def MAE(y, y_hat):
     N = len(y)
-    return (1/N)*np.sum(abs(y - y_hat))
+    return (1/N) * np.sum(abs(y - y_hat))
+
+
+# RMSE(Root Mean Squared Error)
+def RMSE(y, y_hat):
+    N = len(y)
+    return np.sqrt((1/N) * np.sum((y - y_hat)**2))
