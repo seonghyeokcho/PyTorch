@@ -87,14 +87,14 @@ def plot_predictions(
         plt.suptitle(title)
 
     # Plot training data in blue
-    plt.scatter(train_data, train_labels, c="b", s=4, label="Training data")
+    plt.scatter(train_data.cpu(), train_labels.cpu(), c="b", s=4, label="Training data")
 
     # Plot test data in green
-    plt.scatter(test_data, test_labels, c="g", s=4, label="Testing data")
+    plt.scatter(test_data.cpu(), test_labels.cpu(), c="g", s=4, label="Testing data")
 
     if predictions is not None:
         # Plot the predictions in red (predictions were made on the test data)
-        plt.scatter(test_data, predictions, c="r", s=4, label="Predictions")
+        plt.scatter(test_data.cpu(), predictions.cpu(), c="r", s=4, label="Predictions")
 
     # Show the legend
     plt.legend(prop={"size": fig_size[1]*2})
