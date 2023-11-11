@@ -72,7 +72,3 @@ def CCEE(y_hat: any, y: any) -> None:
     delta = 1e-7
     N = y.shape[0]
     return -(1/N)*np.sum(np.sum(y*np.log(y_hat + delta), axis=1))
-
-
-
-    
