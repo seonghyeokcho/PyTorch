@@ -6,7 +6,7 @@ def sigmoid(x):
 
 
 def ReLU(x):
-    return max(0, x)
+    return np.maximum(0, x)
 
 
 def LeakyReLU(x, alpha):
@@ -20,9 +20,9 @@ def tanh(x):
 
 # hyperbolic cosine, cosh(쌍곡 코사인)
 def cosh(x):
-    return (np.exp(x)-np.exp(-x)) / 2
+    return (np.exp(x)+np.exp(-x)) / 2
 
 
 # hyperbolic sine, sinh(쌍곡 사인)
 def sinh(x):
-    return (np.exp(x)+np.exp(-x)) / 2
+    return (np.exp(x)-np.exp(-x)) / 2
