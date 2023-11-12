@@ -243,16 +243,37 @@ def pred_and_plot_image(
     plt.axis(False)
 
 
-def set_seeds(seed: int=42):
+def set_seeds(seed: int=42, device: torch.device=None):
     """Sets random sets for torch operations.
 
     Args:
         seed (int, optional): Random seed to set. Defaults to 42.
+        device (str, optional): device what you had.
     """
     # Set the seed for general torch operations
     torch.manual_seed(seed)
-    # Set the seed for CUDA torch operations (ones that happen on the GPU)
-    torch.cuda.manual_seed(seed)
+    if device is not None:
+        if device == "cuda":
+            # Set the seed for CUDA torch operations (ones that happen on the GPU)
+            torch.cuda.manual_seed(seed)
+        elif device == "mps":
+            torch.mps.manual_seed(seed)
+
+def set_device():
+    """Set device agnostic
+
+    Returns device (str)
+    -------
+    _type_
+        _description_
+    """
+    if torch.cuda.is_available():
+        device = "cuda"
+    elif torch.backends.mps.is_available():
+        device = "mps"
+    else:
+        device = "cpu"
+    return device
 
 
 def download_data(source: str, 
